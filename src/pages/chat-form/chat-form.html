@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-item>
+        <h2>{{secondparty.Fname}} {{secondparty.Lname}}</h2>
+        <ion-avatar item-left>
+          <img src="http://www.lorempixel.com/400/400" />
+        </ion-avatar>
+      </ion-item>
+  </ion-navbar>
+</ion-header>
+<ion-content class="PageContent">
+
+  <ion-list no-lines>
+  <div *ngFor="let item of messages">
+    <ion-item text-wrap  *ngIf="item.author == user._id" >
+      <div ion-button item-right >  {{item.body}} </div>
+    </ion-item>
+    <ion-item text-wrap *ngIf="item.author != user._id" >
+      <div ion-button outline width-80 style="background-color: #fff;">    {{item.body}}</div>
+    </ion-item>
+  </div>
+  </ion-list>
+
+</ion-content>
+   <ion-footer >
+     <p *ngIf="UserState">User is typing ...</p>
+     <form #f="ngForm" style="background-color: #fff;">
+    <ion-item>
+      <button  ion-button item-right [disabled]="f.valid === false" (click)="Sendmsg(chatInput)" style="padding: 0px 13px;margin: 0;height: 100%;">
+        <ion-icon style="font-size: 30px;"   name="send"></ion-icon>
+      </button>
+        <ion-input type="text" [(ngModel)]="chatInput" (ngModelChange)="typingState()" name="chatText" placeholder="type your message here"></ion-input>
+    </ion-item>
+  </form>
+   </ion-footer>

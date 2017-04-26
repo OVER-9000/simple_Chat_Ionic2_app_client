@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+      <button item-right ion-button (click)="OnLogout()">LogOut</button>
+
+    <ion-title>
+Conversations
+    </ion-title>
+
+
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+ <ion-list>
+   <div *ngFor="let item of chatAPI.AllConversations.conversations">
+ <ion-item>
+   <ion-item  (click)="StartCon(item)" >
+     <div>
+       <h3>{{item.secondparty.Fname}} {{item.secondparty.Lname}} <ion-badge item-right *ngIf="(item.ISawIt)?(item.ISawIt.indexOf(user.id) < 0):flase">New</ion-badge></h3>
+       <p>{{item.Lmsg}}</p>
+     <p>{{item.createdAt}}</p>
+</div>
+       <ion-avatar item-left>
+         <img src="http://www.lorempixel.com/400/400" />
+       </ion-avatar>
+     </ion-item>
+ </ion-item>
+  </div>
+ </ion-list>
+</ion-content>

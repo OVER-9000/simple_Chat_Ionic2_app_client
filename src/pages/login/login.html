@@ -1,0 +1,25 @@
+<ion-header >
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="LoginPage">
+<ion-grid>
+  <ion-row>
+<ion-input style="color: rgb(255,255,255);" [(ngModel)]="U_Email" name="U_Email" required placeholder="Email" color="rgb(255,255,255);"></ion-input>
+  </ion-row>
+<ion-row>
+  <ion-input style="color: rgb(255,255,255);" type="password" [(ngModel)]="U_Password" name="U_Password" required placeholder="Password" ></ion-input>
+  </ion-row>
+  <ion-row>
+    <button ion-button full (click)="Login()">Login</button>
+    </ion-row>
+   <ion-row>
+     <p style="color: rgb(255,255,255);" >Register ... If you have not an account </p>
+   </ion-row>
+    <ion-row>
+  <button ion-button block outline (click)="goRegister()">Register</button>
+  </ion-row>
+  </ion-grid>
+</ion-content>

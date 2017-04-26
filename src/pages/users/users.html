@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Users</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-list>
+   <ion-item-sliding *ngFor="let item of UsersArr.Users">
+   <ion-item  (click)="StartCon(item)" *ngIf="item._id != user.user._id">
+       <h3>{{item.Fname}} {{item.Lname}}</h3>
+       <ion-avatar item-left>
+         <img src="http://www.lorempixel.com/400/400" />
+       </ion-avatar>
+<div *ngIf="isActive(item._id)" item-right>
+  <div ion-button style="height: 15px;border-radius: 100%;width: 15px;"></div><p side="left">Online</p>
+</div>
+     </ion-item>
+   </ion-item-sliding>
+ </ion-list>
+</ion-content>
